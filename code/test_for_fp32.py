@@ -16,8 +16,8 @@ import scipy.io as scio
 import cv2
 
 from tensorrt.lite import Engine
-import tensorrt as trt
 
+import tensorrt as trt
 
 if __name__ == '__main__':
 
@@ -25,7 +25,6 @@ if __name__ == '__main__':
     # engine_fp32 = Engine(PLAN='./model/resnet_tf_b256_fp32.engine', log_sev=4, max_batch_size=256)
     # 屏蔽信息输出，log_sev应换成logger_severity
     engine_fp32 = Engine(PLAN='./model/resnet_tf_b256_fp32.engine', logger_severity=trt.infer.LogSeverity.ERROR, max_batch_size=256)
-
 
     # batch size
     batch_size = 256

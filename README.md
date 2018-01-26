@@ -68,9 +68,7 @@
 1. `tensorboard` 使用：在`callbacks` 中添加`tensorboard` 时，其参数`histogram_freq=0` ，必须设置为0，否则会报错，参考：[https://github.com/tensorflow/tensorflow/pull/9787#issuecomment-360039499](https://github.com/tensorflow/tensorflow/pull/9787#issuecomment-360039499)
 2. 转换成`freeze_graph` 时，`freeze_graph.freeze_graph` 需要指定输出层的名字`output_node_names` ，这里`output_node_names=指定名字/功能` ，如`output_node_names=fc3/Softmax` ，`fc3` 为人工指定名字，`Softmax` 为实现功能；
 3. 转换成`engine` 时，`trt.utils.uff_to_trt_engine` 有个参数`max_batch_size` ，需根据显存设置，不能太大；
-<<<<<<< HEAD
 4. 官网帮助文档可能还没有更新，使用时需注意；
 5. 屏蔽`log` 输出，可以将`log_sev` 替换成`logger_severity=trt.infer.LogSeverity.ERROR` ，详见：[http://note.youdao.com/noteshare?id=b3fdec4fc9e5861c753987c0196675ef&sub=F20AB86FBA0B4547B0FD3D7930DE4988](http://note.youdao.com/noteshare?id=b3fdec4fc9e5861c753987c0196675ef&sub=F20AB86FBA0B4547B0FD3D7930DE4988) ，也可以参考代码中使用方法；
-
 
 
